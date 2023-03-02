@@ -108,4 +108,9 @@ class ProductController extends Controller
         //redirect the user and display success message
         return redirect()->route('products.index')->with('success','Product deleted successfully');
     }
+
+    public function __construct()
+       {
+          $this->middleware('auth')->except(['index', 'show']);
+       }
 }
